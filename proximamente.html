@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="css/estilos.css">
+   <title>Cálculo Online - PROXIMAMENTE</title>
+   <link rel="icon" href="images/favicon4.png">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body id="body">
+
+   <i class="icon-menu burger-button" id="burger-menu"></i>
+
+   <!-- Aca comienza al navbar -->
+
+   <header class="header">
+      <div class="container">
+         <div class="nav-superior" id="nav-superior">
+            <figure class="calculo-online-image">
+               <a href="index.html"><img src="images/logo11.png" alt="" height="100px" width="225px"></a>
+            </figure>
+            <nav class="nav-superior-options">
+               <ol>
+                  <li><a href="proximamente.html">Suscripción</a></li>
+                  <li><a href="proximamente.html">Próximamente</a></li>
+                  <li><a href="contacto.html">Contacto</a></li>
+                  <li><a href="proximamente.html">Iniciar sesión / Registrarse</a></li>
+               </ol>
+            </nav>
+         </div>
+         <div class="nav-inferior" id="nav-inferior">
+            <ol>
+               <li><a style="text-decoration:none" href="vsa.html">Viga simple apoyada</a></li>
+               <li><a style="text-decoration:none" href="vse.html">Viga simple empotrada</a></li>
+               <li><a style="text-decoration:none" href="vsae.html">Viga simple apoyada-empotrada</a></li>
+               <li><a style="text-decoration:none" href="vsv.html">Viga simple en voladizo</a></li>
+               <li><a style="text-decoration:none" href="v2vi.html">Viga de dos vanos iguales</a></li>
+            </ol>
+         </div>
+      </div>
+   </header>
+
+   <!-- Aca termina el navbar -->
+
+
+   <!-- Aca comienza al hero -->
+
+   <section class="hero">
+      <div class="container">
+         <h1>
+            <strong>Ups!</strong> Esta sección todavía <br> no está disponible :( <br> Estamos trabajando en ello :)
+         </h1>
+         <img class="hero-image" src="images/hero2.jpg" width="500" height="300" alt="imagen principal del sitio">
+      </div>
+   </section>
+
+
+   <!-- Inicio del footer -->
+
+   <footer class="footer">
+      <div>
+         <a href="proximamente.html">
+            <p>Terminos y condiciones</p>
+         </a>
+      </div>
+      <div>
+         <p>Contacto: admin@calculoonline.com</p>
+      </div>
+   </footer>
+
+   <!-- Aca termina el footer -->
+
+   <!-- Inicio del JavaScript -->
+
+   <script>
+      const ipad = window.matchMedia("screen and (max-width: 767px)");/*para escuchar y abrir el burger menu solo en tamaños menores a 767px*/
+      const menu = document.querySelector(".nav-inferior");
+      console.log(menu);
+      const burgerButton = document.querySelector("#burger-menu");
+      console.log(burgerButton);
+
+      ipad.addListener(validation) /*para escuchar y abrir el burger menu solo en tamaños menores a 767px*/
+
+      function validation(event) {
+         if (event.matches) {
+            burgerButton.addEventListener("click", hideShow); /*aqui digo que cuando aprete el burgerButton se dispara la funcion hideShow que va a ser desplazar el menu*/
+         } else {
+            burgerButton.removeEventListener("click", hideShow);
+         }
+      }
+      validation(ipad);
+
+      function hideShow() {
+         if (menu.classList.contains("is-active")) {
+            menu.classList.remove("is-active");/*Le estoy quitando la clase "is-active" al menu para que se oculte*/
+         } else {
+            menu.classList.add("is-active");/*Le estoy agregando la clase "is-active" al menu para que se muestre*/
+         }
+      }
+   </script>
+
+   <!-- Fin del JavaScript -->
+
+</body>
+
+</html>

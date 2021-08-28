@@ -1,0 +1,754 @@
+/* -------------------Icomood Inicio*/
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?6i4w2b');
+  src:  url('../fonts/icomoon.eot?6i4w2b#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?6i4w2b') format('truetype'),
+    url('../fonts/icomoon.woff?6i4w2b') format('woff'),
+    url('../fonts/icomoon.svg?6i4w2b#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e900";
+}
+
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .8);
+  display: none;
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  z-index: 4;
+  left: 5px;
+  top: 5px;
+  color: white;
+}
+
+/* -------------------Icomood Fin*/
+
+
+/* -------------------Variables Inicio*/
+:root{ /*todo lo que pongamos dentro de root va a ser accecible para todas las demas clases*/
+--green-color: #7ACC2D;
+--white-color: white;
+--black-color: #313337;
+--dark-color: #131921;
+--gray-color: #CFCFCF;
+--gray-dark-color: #808080;
+--orange-color: #F79400;
+--blue-color: #232F3E;
+--light-color: #EAEDED;
+--black-color: #111111;
+/* tipografia */
+--normal: 12px;
+--intermedio: 15px;
+--grande: 20px;
+/* espaciado */
+--space: 10px;
+/* box shadow (sombra de una caja)*/
+--box: 0px 0 2px 1px #e6e5e9;
+
+}
+
+/* -------------------Variables Fin*/
+
+/* -------------------De todo Inicio*/
+
+html,body{
+  padding: 0px;
+  margin: 0px;
+  font-size: var(--normal);
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: var(--gray-color);
+}
+
+p {
+  font-size: var(--normal);
+}
+
+figure {
+  margin: 0;
+}
+
+.hero h1 {
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: -.2px;
+  color: var(--blue-color);
+  margin: 0;
+  text-shadow: 1px 2px 2px #000;
+  /* background: rgba(0, 0, 0, .5); */
+  /* margin: 100px 150px 70px 30px; */
+  /* text-transform: uppercase; */
+  /* text-decoration: dashed; */
+}
+
+.container {
+  /* border: 1px solid red; */
+  max-width: 1000px;
+  flex: 1;
+  margin: 0 auto;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  height: inherit;
+  flex-wrap: inherit;
+}
+
+/* -------------------De todo Fin*/
+
+/* -------------------Nav Inicio*/
+
+header {
+  display: flex;
+  background-color: var(--dark-color);
+  color: white;
+  flex-wrap: wrap; /* creo que esto no sirve para nada en este lugar*/
+}
+
+.header ol {
+  display: flex;
+  height: inherit;
+}
+
+.header ol li {
+  list-style: none;
+  height: inherit;
+}
+
+.header a {
+  color: var(--white-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  padding: 0 10px;
+}
+
+.nav-superior{
+  flex: 1;
+  display: inherit;
+  background-color: var(--dark-color);
+  padding: 0px var(--space);
+  color: var(--white-color);
+  height: inherit;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-superior li a:hover { /* aca se definen las caracteristicas de un boton como por ejemplo de que color se pone cuando se pasa el mouse encima */
+  color: var(--orange-color);
+}
+
+.nav-superior-options {
+
+}
+
+.nav-inferior {
+  display: inherit;
+  background-color: var(--blue-color);
+  padding: 0px var(--space);
+  color: var(--white-color);
+  height: inherit;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* creo que esto no sirve para nada en este lugar*/
+  width: 100%;
+}
+
+.nav-inferior ol {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-inferior li a:hover { /* aca se definen las caracteristicas de un boton como por ejemplo de que color se pone cuando se pasa el mouse encima */
+  color: var(--orange-color);
+}
+
+/* -------------------Nav Fin*/
+
+/* -------------------hero Inicio*/
+
+.hero {
+  height: 300px;
+  /* background-image: url('../images/hero.jpg'); */
+  background-color: var(--light-color);
+  /* background-size: 500px 300px; */
+  /* background-repeat: no-repeat; */
+  /* background-position-x: right; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-image{
+  object-fit: cover;
+}
+
+/* -------------------hero Fin*/
+
+/* -------------------Section solicitaciones */
+
+.solicitaciones {
+  background: var(--light-color);
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.viga-tipos {
+  /* border-top: 10px solid red;
+  border-right: 10px solid green;
+  border-left: 10px solid orange;
+  border-bottom: 10px solid pink; */
+  /* color: blue; */
+  /* border-top-color: red;
+  border-top-width: 15px;
+  border-top-style: solid; */
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* border-top-left-radius: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
+  /* margin: 10px; */
+  margin-bottom: 15px;
+  /* margin-right
+  margin-left 
+  margin-top */
+  padding: 20px;
+  background: white;
+  /*display: flex;*/
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3 {
+  background-color: var(--gray-color);
+}
+
+.viga-tipo-titulo {
+  font-size: var(--grande);
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.viga-tipo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.viga-detalles {
+  width: 45%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.viga-detalles a {
+  text-decoration: none;
+  color: black;
+}
+
+.viga-detalles-titulo {
+  font-size: var(--intermedio);
+}
+
+.viga-detalles-descripcion {
+font-size: var(--normal);
+}
+
+.viga-tipo-img-figure {
+  width: 35%;
+}
+
+.viga-tipo-img-figure img {
+  max-width: 100%;
+}
+
+.viga-precio {
+  font-size: var(--intermedio);
+  width: 20%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* -------------------Section viga-pagina */
+
+.viga-pagina {
+  background: var(--light-color);
+  padding: 20px;
+}
+
+.carga-seleccionador {
+  color: var(--black-color);
+  border: 1px solid var(--gray-dark-color);
+  padding: 5px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: var(--gray-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carga-seleccionador-titulo {
+  font-size: var(--intermedio);
+  padding: 0px 0px 5px 0px;
+  font-weight: bold;
+}
+
+.carga-seleccionador-opciones {
+
+}
+
+.viga-pagina-calculos {
+  border: 1px solid var(--gray-dark-color);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between;*/
+  flex-direction: column;
+}
+
+.calculo-carga-titulo {
+  text-align: center;
+}
+
+.calculo-carga-descripcion {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calculo-carga-datos {
+  text-align: center;
+  width: 40%;
+}
+
+.calculo-carga-dato {
+  color: var(--black-color);
+  border: 1px solid var(--gray-dark-color);
+  padding: 5px 10px;
+  margin-bottom: .3em;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: var(--gray-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calculo-carga-dato p {
+  font-size: var(--normal);
+  font-weight: bold;
+  margin: 0px;
+  text-align: center;
+}
+
+.calculo-carga-dato p input {
+  margin: 5px 0px 0px 0px;
+}
+
+.calculo-carga-descripcion-img {
+  width: 60%;
+}
+
+.calculo-carga-descripcion-img img {
+  max-width: 100%;
+}
+
+.resultados {
+
+}
+
+.resultados-titulo {
+  text-align: center;
+  background-color: var(--gray-color);
+}
+
+.resultados-descripcion {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.resultados-descripcion-tablas {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+}
+
+table {
+  color: var(--black-color);
+  /*border: 1px solid var(--gray-dark-color);*/
+  /* padding: 5px 10px;*/
+  margin-bottom: .4em;
+  text-decoration: none;
+  border-radius: 5px;
+  /*background-color: var(--gray-color);*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  border-collapse: collapse;
+  text-align: center;
+}
+
+thead {
+  background-color: var(--gray-color);
+}
+
+tbody {
+  background-color: var(--white-color);
+}
+
+th {
+  border: 1px solid var(--gray-dark-color);
+  padding: 5px;
+}
+
+td {
+  border: 1px solid var(--gray-dark-color);
+  padding: 5px;
+}
+
+.resultados-descripcion-imagen {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.resultados-descripcion-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.resultados-descripcion img {
+  width: 80%;
+}
+
+.criterio-signos {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.criterio-signos h4 {
+  margin: .7em 0;
+}
+
+.criterio-signos-img {
+
+}
+
+.criterio-signos-img img {
+  max-width: 100%;
+}
+
+.contenedorTablaLista {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* -------------------------------- Footer */
+
+.footer {
+   color: var(--white-color);
+   background-color: var(--dark-color);
+   padding: var(--space);
+   display: flex;
+   align-items: center; /* esta alineando los elementos verticalmente */
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.footer a {
+   color: white;
+}
+
+.option-contact a {
+  color: var(--green-color);
+}
+
+/* -------------------------------- Responsive (para Desktop First ir de mayor a menor)*/
+
+@media screen and (max-width: 1023px) { /*esta es la opcion 2 para agregar responsive al sitio*/
+  .hero {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 2em;
+  }
+  .hero-image {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    filter: opacity(80%) blur(1px);
+  }
+  .solicitaciones {
+    padding: 0px;
+  }
+  .container {
+    padding: 0 1em;
+  }
+  h1 {
+    font-size: 2em;
+    z-index: 2;
+  }
+}
+
+@media screen and (max-width: 767px) { 
+  h2 {
+    font-size: 1.2em;
+    margin: .5em 0;
+  }
+  .section-title {
+    font-size: 2em;
+    margin: .5em 0;
+  }
+  .burger-button {
+    display: block;
+  }
+
+  .header {
+    display: block;
+    height: auto;
+  }
+  .header ol {
+    display: block;
+  }
+  .header ol li {
+    height: 50px;
+  }
+  .header a {
+    justify-content: center;
+  }
+  .header .nav-inferior a {
+    justify-content: center;
+    height: 40px;
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: .5em;
+  }
+  .header .calculo-online-image {
+    text-align: center;
+  }
+  ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-superior-options {
+    display: flex;
+  }
+  .nav-superior-options ol{
+    display: flex;
+    justify-content: center;
+    width: 100%;  
+  } 
+  .nav-inferior {
+    position: fixed;
+    background: rgba(35, 47, 62, .9);
+    z-index: 3;
+    top: 0;
+    left: -110vw;
+    width: 100vw; /*esto hace que abarque todo el ancho*/
+    /* height: 100vh; */
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+  }
+  .nav-inferior.is-active {
+    left: 0;
+  }
+
+  .viga-tipo {
+    display: block;
+  }
+  .viga-detalles {
+    width: auto;
+    /* font-size: 16px; */ /*si no dice nada es pq esta en 16px automaticamente*/
+  }
+  .viga-detalles-titulo {
+    font-size: 1.3em;
+    margin: .5em 0;
+  }
+  .viga-detalles-descripcion {
+    font-size: 1em;
+    margin: .5em 0;
+  }
+
+  .viga-tipo-img-figure {
+    width: auto;
+    text-align: center;
+  }
+  .viga-precio {
+    width: auto;
+    margin-bottom: 1.5em;
+  }
+
+  .carga-seleccionador {
+    font-size: 1.1em;
+  }
+  .carga-seleccionador-titulo {
+    font-size: inherit;
+  }
+  .calculo-carga-titulo {
+    font-size: 1.3em;
+    margin: .7em 0;
+  }
+  .calculo-carga-descripcion {
+    font-size: 1.1em;
+    display: block;
+  }
+  .calculo-carga-datos {
+    width: auto;
+    font-size: inherit;
+  }
+  .calculo-carga-dato {
+    font-size: inherit;
+  }
+  .calculo-carga-dato p {
+    font-size: inherit;
+  }
+  .calculo-carga-descripcion-img {
+    width: auto;
+    text-align: center;
+  }
+  .resultados-titulo {
+    font-size: 1.3em;
+    margin: .7em 0;
+  }
+  .resultados-descripcion {
+    font-size: 1em;
+  }
+  .resultados-descripcion-tablas {
+    width: auto;
+    font-size: 1em;
+  }
+  .resultados-descripcion-tablas table {
+    font-size: inherit;
+  }
+  .resultados-descripcion-img {
+    width: auto;
+  }
+  .criterio-signos-img {
+    width: auto;
+    text-align: center;
+  }
+  .criterio-signos h4 {
+    font-size: 1em;
+  }
+  .contenedorTablaLista {
+
+  }
+  .contenedorTablaLista table {
+    font-size: 1em;
+  }
+  .contenedorTablaLista button {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 480px) { 
+  .hero h1 {
+    font-size: 1.8em;
+  }
+
+  .header .nav-inferior a {
+    font-size: 1.5em;
+  }
+
+  .viga-detalles {
+    font-size: 14px;
+  }
+  .calculo-carga {
+    font-size: 14px;
+  }
+  .resultados {
+    font-size: 14px;
+  }
+  .criterio-signos {
+    font-size: 14px;
+  }
+  .contenedorTablaLista {
+    font-size: 14px;
+  }
+  .carga-seleccionador-opciones {
+    width: 15em;
+  }
+
+  .footer {
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+}
+
+@media screen and (max-width: 320px) { 
+  .hero h1 {
+    font-size: 1.5em;
+  }
+  .hero {
+    padding: 2em 1em;
+  }
+  .nav-superior-options {
+    font-size: .9em;
+  }
+}
+

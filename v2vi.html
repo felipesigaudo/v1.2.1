@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="css/estilos.css">
+   <title>Cálculo Online - V2VI</title>
+   <link rel="icon" href="images/favicon4.png">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <script src="js/html2pdf.js-master/dist/html2pdf.bundle.min.js"></script>
+   <!-- JavaScript para HTML to PDF (Boton "Descargar en PDF") -->
+
+   <!-- Aca comienza el Jquery -->
+
+   <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+   <script type="text/javascript">
+      function mostrar(id) {
+         if (id == "carga-puntual-1er-vano") {
+            $("#carga-puntual-1er-vano").show();
+            $("#carga-uniforme-1er-vano").hide();
+            $("#carga-uniforme-2-vanos").hide();
+         }
+
+         if (id == "carga-uniforme-1er-vano") {
+            $("#carga-puntual-1er-vano").hide();
+            $("#carga-uniforme-1er-vano").show();
+            $("#carga-uniforme-2-vanos").hide();
+         }
+
+         if (id == "carga-uniforme-2-vanos") {
+            $("#carga-puntual-1er-vano").hide();
+            $("#carga-uniforme-1er-vano").hide();
+            $("#carga-uniforme-2-vanos").show();
+         }
+      }
+   </script>
+
+   <!-- Aca finaliza el Jquery -->
+
+
+</head>
+
+<body id="body">
+   <i class="icon-menu burger-button" id="burger-menu"></i>
+
+   <!-- Aca comienza al navbar -->
+
+   <header class="header">
+      <div class="container">
+         <div class="nav-superior" id="nav-superior">
+            <figure class="calculo-online-image">
+               <a href="index.html"><img src="images/logo11.png" alt="" height="100px" width="225px"></a>
+            </figure>
+            <nav class="nav-superior-options">
+               <ol>
+                  <li><a href="proximamente.html">Suscripción</a></li>
+                  <li><a href="proximamente.html">Próximamente</a></li>
+                  <li><a href="contacto.html">Contacto</a></li>
+                  <li><a href="proximamente.html">Iniciar sesión / Registrarse</a></li>
+               </ol>
+            </nav>
+         </div>
+         <div class="nav-inferior" id="nav-inferior">
+            <ol>
+               <li><a href="vsa.html">Viga simple apoyada</a></li>
+               <li><a href="vse.html">Viga simple empotrada</a></li>
+               <li><a href="vsae.html">Viga simple apoyada-empotrada</a></li>
+               <li><a href="Vsv.html">Viga simple en voladizo</a></li>
+               <li><a href="v2vi.html">Viga de dos vanos iguales</a></li>
+            </ol>
+         </div>
+      </div>
+   </header>
+
+   <!-- Aca termina el navbar -->
+
+   <!-- Aca comienza la section viga-pagina -->
+
+   <section class="viga-pagina">
+      <div class="container" id="container">
+         <h1 class="section-title">Solicitaciones: Viga de 2 vanos iguales</h1>
+         <article class="viga-pagina-calculos">
+
+            <div class="carga-seleccionador">
+               <!-- div que contiene el seleccionador de carga -->
+               <label class="carga-seleccionador-titulo" for="carga-tipo">Tipo de carga</label>
+               <select class="carga-seleccionador-opciones" name="carga-tipo" onChange="mostrar(this.value);">
+                  <option selected disabled>Selecciona una opción</option>
+                  <option value="carga-puntual-1er-vano">Carga puntual en el primer vano</option>
+                  <option value="carga-uniforme-1er-vano">Carga uniforme en el primer vano</option>
+                  <option value="carga-uniforme-2-vanos">Carga uniforme en los 2 vanos</option>
+               </select>
+            </div>
+
+            <!-- En estos proximos div´s se define lo que va en cada opcion del select -->
+
+            <div class="calculo">
+               <!-- Viga de 2 vanos iguales -->
+
+               <div class="calculo-carga" id="carga-puntual-1er-vano" style="display: ;">
+                  <!-- El style="display: none;" es para ocultar esta seccion -->
+
+                  <h2 class="calculo-carga-titulo">Cálculo de carga puntual en el primer vano</h2>
+                  <div class="calculo-carga-descripcion">
+                     <div class="calculo-carga-datos">
+                        <div class="calculo-carga-dato">
+                           <p>Longitud de vano <strong>L (m)</strong>:<br />
+                              <input type="number" step="any" name="LV2viCp1v" id="LV2viCp1v" />
+                           </p>
+                        </div>
+                        <div class="calculo-carga-dato">
+                           <p>Ubicación de la carga <strong>a (m)</strong>:<br />
+                              <input type="number" step="any" name="aV2viCp1v" id="aV2viCp1v" />
+                           </p>
+                        </div>
+                        <div class="calculo-carga-dato">
+                           <p>Valor de la carga <strong>F (KN)</strong>:<br />
+                              <input type="number" step="any" name="FV2viCp1v" id="FV2viCp1v" />
+                           </p>
+                        </div>
+                        <input type="submit" name="calcularV2viCp1v" value="Calcular" id="calcularV2viCp1v" />
+                     </div>
+                     <figure class="calculo-carga-descripcion-img">
+                        <img src="images/V2vi-carga-puntual-1er-vano.png" alt="" width="400px">
+                     </figure>
+                  </div>
+
+                  <div class="resultados">
+                     <h2 class="resultados-titulo">Resultados</h2>
+                     <div class="resultados-descripcion" id="resultados-descripcion">
+                        <div class="resultados-descripcion-tablas">
+                           <table>
+                              <!-- tabla de reacciones -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Reacciones</th>
+                                 </tr>
+                                 <tr>
+                                    <th>RA [KN]</th>
+                                    <th>RB [KNm]</th>
+                                    <th>RC [KN]</th>
+                                    <th>MA=MB=MC [KN]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaReaccionesV2viCp1v">
+                           </table>
+                           <table>
+                              <!-- tabla de esfuerzos de corte -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="3">Esfuerzos de corte</th>
+                                 </tr>
+                                 <tr>
+                                    <th>VAD [KN]</th>
+                                    <th>VDB [KN]</th>
+                                    <th>VBC [KN]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaCortesV2viCp1v">
+                           </table>
+                           <table>
+                              <!-- tabla de momento -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Momentos</th>
+                                 </tr>
+                                 <tr>
+                                    <th>MA [KNm]</th>
+                                    <th>MD [KNm]</th>
+                                    <th>MB [KNm]</th>
+                                    <th>MC [KNm]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaMomentoV2viCp1v">
+                           </table>
+                        </div>
+                        <div class="resultados-descripcion-imagen">
+                           <h4>Gráficos genéricos</h4>
+                           <figure class="resultados-descripcion-img">
+                              <img src="images/V2vi-carga-puntual-1er-vano-diagramas.png" alt="" width="250px">
+                           </figure>
+                        </div>
+                     </div>
+                     <div class="criterio-signos">
+                        <h4>Criterio de signos</h4>
+                        <figure class="criterio-signos-img">
+                           <img src="images/convenciones.png" alt="" width="250px">
+                        </figure>
+                     </div>
+                     <div class="contenedorTablaLista" id="contenedorTablaListaV2viCp1v">
+                        <!-- tabla de listado de solicitaciones -->
+                        <table>
+                           <!-- tabla de listado de solicitaciones -->
+                           <thead>
+                              <tr>
+                                 <th>X (m)</th>
+                                 <th>Corte (KN)</th>
+                                 <th>Momento (KNm)</th>
+                              </tr>
+                           </thead>
+                           <tbody id="cuerpoTablaListaV2viCp1v">
+                           </tbody>
+                        </table>
+                        <button onclick="generatePDF()" id="btnDescargarPdf">Descargar en PDF</button>
+                     </div>
+                  </div>
+
+               </div>
+
+               <div class="calculo-carga" id="carga-uniforme-1er-vano" style="display: none;">
+
+                  <h2 class="calculo-carga-titulo">Cálculo de carga uniforme en el primer vano</h2>
+                  <div class="calculo-carga-descripcion">
+                     <div class="calculo-carga-datos">
+                        <div class="calculo-carga-dato">
+                           <p>Longitud de vano <strong>L (m)</strong>:<br />
+                              <input type="number" step="any" name="LV2viCu1v" id="LV2viCu1v" />
+                           </p>
+                        </div>
+                        <div class="calculo-carga-dato">
+                           <p>Valor de la carga uniforme <strong>q (KN/m)</strong>:<br />
+                              <input type="number" step="any" name="qV2viCu1v" id="qV2viCu1v" />
+                           </p>
+                        </div>
+                        <input type="submit" name="calcularV2viCu1v" value="Calcular" id="calcularV2viCu1v" />
+                     </div>
+                     <figure class="calculo-carga-descripcion-img">
+                        <img src="images/V2vi-carga-uniforme-1er-vano.png" alt="" width="400px">
+                     </figure>
+                  </div>
+
+                  <div class="resultados">
+                     <h2 class="resultados-titulo">Resultados</h2>
+                     <div class="resultados-descripcion" id="resultados-descripcion">
+                        <div class="resultados-descripcion-tablas">
+                           <table>
+                              <!-- tabla de reacciones -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Reacciones</th>
+                                 </tr>
+                                 <tr>
+                                    <th>RA [KN]</th>
+                                    <th>RB [KNm]</th>
+                                    <th>RC [KN]</th>
+                                    <th>MA=MB=MC [KN]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaReaccionesV2viCu1v">
+                           </table>
+                           <table>
+                              <!-- tabla de esfuerzos de corte -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="3">Esfuerzos de corte</th>
+                                 </tr>
+                                 <tr>
+                                    <th>VA [KN]</th>
+                                    <th>VBizq [KN]</th>
+                                    <th>VBderC [KN]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaCortesV2viCu1v">
+                           </table>
+                           <table>
+                              <!-- tabla de momento -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Momentos</th>
+                                 </tr>
+                                 <tr>
+                                    <th>MA [KNm]</th>
+                                    <th>Mmax [KNm]</th>
+                                    <th>MB [KNm]</th>
+                                    <th>MC [KNm]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaMomentoV2viCu1v">
+                           </table>
+                        </div>
+                        <div class="resultados-descripcion-imagen">
+                           <h4>Gráficos genéricos</h4>
+                           <figure class="resultados-descripcion-img">
+                              <img src="images/V2vi-carga-uniforme-1er-vano-diagramas.png" alt="" width="250px">
+                           </figure>
+                        </div>
+                     </div>
+                     <div class="criterio-signos">
+                        <h4>Criterio de signos</h4>
+                        <figure class="criterio-signos-img">
+                           <img src="images/convenciones.png" alt="" width="250px">
+                        </figure>
+                     </div>
+                     <div class="contenedorTablaLista" id="contenedorTablaListaV2viCu1v">
+                        <!-- tabla de listado de solicitaciones -->
+                        <table>
+                           <!-- tabla de listado de solicitaciones -->
+                           <thead>
+                              <tr>
+                                 <th>X (m)</th>
+                                 <th>Corte (KN)</th>
+                                 <th>Momento (KNm)</th>
+                              </tr>
+                           </thead>
+                           <tbody id="cuerpoTablaListaV2viCu1v">
+                           </tbody>
+                        </table>
+                        <button onclick="generatePDF()" id="btnDescargarPdf">Descargar en PDF</button>
+                     </div>
+                  </div>
+
+               </div>
+
+               <div class="calculo-carga" id="carga-uniforme-2-vanos" style="display: none;">
+
+                  <h2 class="calculo-carga-titulo">Cálculo de carga uniforme en los 2 vanos</h2>
+                  <div class="calculo-carga-descripcion">
+                     <div class="calculo-carga-datos">
+                        <div class="calculo-carga-dato">
+                           <p>Longitud de vano <strong>L (m)</strong>:<br />
+                              <input type="number" step="any" name="LV2viCu2v" id="LV2viCu2v" />
+                           </p>
+                        </div>
+                        <div class="calculo-carga-dato">
+                           <p>Valor de la carga uniforme <strong>q (KN/m)</strong>:<br />
+                              <input type="number" step="any" name="qV2viCu2v" id="qV2viCu2v" />
+                           </p>
+                        </div>
+                        <input type="submit" name="calcularV2viCu2v" value="Calcular" id="calcularV2viCu2v" />
+                     </div>
+                     <figure class="calculo-carga-descripcion-img">
+                        <img src="images/V2vi-carga-uniforme-2-vanos.png" alt="" width="400px">
+                     </figure>
+                  </div>
+
+                  <div class="resultados">
+                     <h2 class="resultados-titulo">Resultados</h2>
+                     <div class="resultados-descripcion" id="resultados-descripcion">
+                        <div class="resultados-descripcion-tablas">
+                           <table>
+                              <!-- tabla de reacciones -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Reacciones</th>
+                                 </tr>
+                                 <tr>
+                                    <th>RA [KN]</th>
+                                    <th>RB [KNm]</th>
+                                    <th>RC [KN]</th>
+                                    <th>MA=MB=MC [KN]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaReaccionesV2viCu2v">
+                           </table>
+                           <table>
+                              <!-- tabla de esfuerzos de corte -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Esfuerzos de corte</th>
+                                 </tr>
+                                 <tr>
+                                    <th>VA [KN]</th>
+                                    <th>VBizq [KN]</th>
+                                    <th>VBder [KN]</th>
+                                    <th>VC [KN]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaCortesV2viCu2v">
+                           </table>
+                           <table>
+                              <!-- tabla de momento -->
+                              <thead>
+                                 <tr>
+                                    <th colspan="4">Momentos</th>
+                                 </tr>
+                                 <tr>
+                                    <th>MA [KNm]</th>
+                                    <th>Mmax [KNm]</th>
+                                    <th>MB [KNm]</th>
+                                    <th>MC [KNm]</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="cuerpoTablaMomentoV2viCu2v">
+                           </table>
+                        </div>
+                        <div class="resultados-descripcion-imagen">
+                           <h4>Gráficos genéricos</h4>
+                           <figure class="resultados-descripcion-img">
+                              <img src="images/V2vi-carga-uniforme-2-vanos-diagramas.png" alt="" width="250px">
+                           </figure>
+                        </div>
+                     </div>
+                     <div class="criterio-signos">
+                        <h4>Criterio de signos</h4>
+                        <figure class="criterio-signos-img">
+                           <img src="images/convenciones.png" alt="" width="250px">
+                        </figure>
+                     </div>
+                     <div class="contenedorTablaLista" id="contenedorTablaListaV2viCu2v">
+                        <!-- tabla de listado de solicitaciones -->
+                        <table>
+                           <!-- tabla de listado de solicitaciones -->
+                           <thead>
+                              <tr>
+                                 <th>X (m)</th>
+                                 <th>Corte (KN)</th>
+                                 <th>Momento (KNm)</th>
+                              </tr>
+                           </thead>
+                           <tbody id="cuerpoTablaListaV2viCu2v">
+                           </tbody>
+                        </table>
+                        <button onclick="generatePDF()" id="btnDescargarPdf">Descargar en PDF</button>
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+
+            <!-- En estos anteriores div´s se define lo que va en cada opcion del select -->
+
+         </article>
+
+      </div>
+   </section>
+
+   <!-- Aca termina la section viga-pagina -->
+
+   <!-- Inicio del footer -->
+
+   <footer class="footer">
+      <div>
+         <a href="proximamente.html">
+            <p>Terminos y condiciones</p>
+         </a>
+      </div>
+      <div>
+         <p>Contacto: admin@calculoonline.com</p>
+      </div>
+   </footer>
+
+   <!-- Fin del footer -->
+
+   <!-- Inicio del JavaScript -->
+
+   <script type="text/javascript" src="js/script-V2vi.js" charset="utf-8"></script>
+   <script>
+      const ipad = window.matchMedia("screen and (max-width: 767px)");/*para escuchar y abrir el burger menu solo en tamaños menores a 767px*/
+      const menu = document.querySelector(".nav-inferior");
+      console.log(menu);
+      const burgerButton = document.querySelector("#burger-menu");
+      console.log(burgerButton);
+
+      ipad.addListener(validation) /*para escuchar y abrir el burger menu solo en tamaños menores a 767px*/
+
+      function validation(event) {
+         if (event.matches) {
+            burgerButton.addEventListener("click", hideShow); /*aqui digo que cuando aprete el burgerButton se dispara la funcion hideShow que va a ser desplazar el menu*/
+         } else {
+            burgerButton.removeEventListener("click", hideShow);
+         }
+      }
+      validation(ipad);
+
+      function hideShow() {
+         if (menu.classList.contains("is-active")) {
+            menu.classList.remove("is-active");/*Le estoy quitando la clase "is-active" al menu para que se oculte*/
+         } else {
+            menu.classList.add("is-active");/*Le estoy agregando la clase "is-active" al menu para que se muestre*/
+         }
+      }
+   </script>
+
+   <!-- Fin del JavaScript -->
+
+</body>
+
+</html>
